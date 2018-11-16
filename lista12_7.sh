@@ -1,6 +1,6 @@
 !/bin/bash
 
-#PBS -l nodes=1:ppn=4,mem=32gb,walltime=00:10:00
+#PBS -l nodes=2:ppn=16,mem=64gb,walltime=00:10:00
 #PBS -M da.garzon1@uniandes.edu.co
 #PBS -m abe
 #PBS -N ejercicio27
