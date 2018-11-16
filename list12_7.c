@@ -1,7 +1,7 @@
-#include <studio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#inlcude "mpi.h"
+#include "mpi.h"
 
 int main(int argc, char * argv[]){
     
@@ -42,7 +42,7 @@ int main(int argc, char * argv[]){
         if (rank == 0){
             printf("pi is approximately %.16f, Error is %.16f\n", pi, fabs(pi - PI_VALUE));
             end_time = MPI_Wtime();
-            computation_time = end_time - star_time;
+            computation_time = end_time - start_time;
             printf("Time of calculating pi is: %f\n",computation_time);
         }
     }
