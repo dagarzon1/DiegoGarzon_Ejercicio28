@@ -29,7 +29,7 @@ int main(int argc, char * argv[]){
         for(int i=0;i<n;i++){
             summ = summ + puntos[i];
         }
-        summ = summ / (double) pow(n,10);
+        summ = summ / (double) n;
         MPI_Reduce(&summ,&s, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
     if (rank == 0){
         total = s / (double) size;
