@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-double f(double x);
+double f();
 
 int main(int argc, char * argv[]){
 
