@@ -18,14 +18,14 @@ int main(int argc, char * argv[]){
     
     MPI_Get_processor_name(name, &len);
     
-    while(true)
+    while(True)
     {
         if (rank == 0) {
             printf("Enter the number of intervals: (0 quits)");
             scanf("%d",&n);
             start_time = MPI_Wtime();
         }
-        
+        MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
         if (n == 0) break;
         
         h = 1.0 / (double) n;
