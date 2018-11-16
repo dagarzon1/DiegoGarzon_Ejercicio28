@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import sys
 import glob
+import os
 
-k = glob.glob("*.txt")
+k = sorted(glob.glob("*.txt"))
 dat = []
 
 int_analitica = np.exp(1) - 1
