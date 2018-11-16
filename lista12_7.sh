@@ -11,6 +11,6 @@ make clean
 cd $PBS_O_WORKDIR 
 make
 
-mpirun -np 16 ./list1.x<<'EOF'
+mpirun -np 16 ./list12_7.x<<'EOF'
 1000
 0
