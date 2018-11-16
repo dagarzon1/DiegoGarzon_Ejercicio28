@@ -8,7 +8,7 @@ import os
 k = sorted(glob.glob("*.txt"))
 dat = []
 
-int_analitica = np.exp(1) - 1
+int_analitica = 155.0/6.0
 
 for i in k:
     d = np.loadtxt(i)
