@@ -14,3 +14,5 @@ for i in {2..8..1}
 do
     mpiexec -np 8 ./integra.x 10**i > "data${i}.txt"
 done
+
+python integra.py
