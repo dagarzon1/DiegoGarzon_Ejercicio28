@@ -17,29 +17,23 @@ int main(int argc, char * argv[]){
     MPI_Comm_rank (MPI_COMM_WORLD, &rank);
     MPI_Comm_size (MPI_COMM_WORLD, &size);
 
-
     int n = N/size;
     double s, total;
 
-        srand(time(NULL));
-        double mx = 1;
-        double mn = 0;
         double summ = 0;
 
         double * puntos = new double[n];
         for(int i=0;i<n;i++){
-            double t = double(rand()) / double(RAND_MAX) ;
-            t = ( mx-mn ) * t + mn;
-            puntos[i] = f(t);
+                puntos[i] = f();
         }
         for(int i=0;i<n;i++){
             summ = summ + puntos[i];
         }
-        summ = summ / (double) n;
+        summ = summ / (double) pow(n,10);
         MPI_Reduce(&summ,&s, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
     if (rank == 0){
         total = s / (double) size;
-        print(total);
+       cout<<total<<endl;
     }
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();
@@ -47,7 +41,14 @@ int main(int argc, char * argv[]){
 
 }
 
-double f(double x){
+double f(){
 
-    return exp(x);
+        double d=0.0;
+        srand(time(NULL));
+        for (int i=0;i<10;i++){
+        double t = double(rand()) / double(RAND_MAX);
+        d = d + t;
+        }
+        d = d * d;
+        return d;
 }
