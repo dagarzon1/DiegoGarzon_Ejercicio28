@@ -7,10 +7,10 @@
 
 
 module load anaconda/python3
-cd $PBS_O_WORKDIR 
+cd $PBS_O_WORKDIR
 mpic++ integra.c -o integra.x
 
-for i in 100 10000 100000 1000000 10000000 100000000
+for i in {2..8..1}
 do
-    mpirun -np 16 ./integra.x i
+    mpiexec -np 8 ./integra.x 10**i > "data${i}.txt"
 done
